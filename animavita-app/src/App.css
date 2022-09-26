@@ -1,0 +1,105 @@
+.App {
+  height: 100vh;
+  text-align: center;
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 3px solid #FFF;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+.loader::after {
+    content: '';  
+  box-sizing: border-box;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: rgb(0, 242, 96);
+    border-bottom-color: rgb(5, 117, 230);
+}
+    
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+} 
+
+.div-anime {
+  height: 70vh;
+  position: relative;
+  box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5);
+  transition: 0.5s ease-in-out;
+  margin: 5px;
+  text-align: center;
+  margin-left: 5vw;
+}
+
+.div-anime:hover {
+  transform: translateY(1vh);
+  cursor: pointer;
+}
+
+.div-anime:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0, 242, 96, 0.5), rgba(5, 117, 230, 1));
+  z-index: 2;
+  transition: 0.5s all;
+  opacity: 0;
+  border-radius: 5px;
+}
+
+.div-anime:hover:before { 
+  opacity: 1;
+}
+
+.img-anime {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;  
+}
+
+.anime-info {
+  position: absolute;
+  z-index: 3;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: 0.5s all;
+  bottom: 5vh;
+  margin-left: 1vw;
+  margin-right: 1vw;
+}
+
+.anime-info .anime-desc {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+          line-clamp: 5; 
+  -webkit-box-orient: vertical;
+}
+
+.div-anime:hover .anime-info {
+  opacity: 1;
+  transform: translateY(0px);
+}
